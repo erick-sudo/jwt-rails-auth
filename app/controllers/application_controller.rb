@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-
+    # wrap_parameters format: []
     before_action :authorized
 
     def encode_token(payload)

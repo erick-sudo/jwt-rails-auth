@@ -41,11 +41,11 @@ JSON Web Token(JWT) is an open standard ([RFC 7519](https://tools.ietf.org/html/
 This information can be verified and trusted because when a JWT is created, they are digitally signed.
 
 JWTs can be signed using a secret (with the **HMAC** algorithm) or a public/private key paair using RSA or ECDSA.  
-<div align="center"><img src="./assets/HashingAlgorithm.png" style="width: 70%;" /></div>
+<div align="center"><img src="./assets/HashingAlgorithm.png" style="width: 100%; background-color: white;" /></div>
 
 **```HMAC - Hash Based Message Authentication```** is a cryptographic authentication technique that uses a hash function and a secret key.  
 
-<div align="center"><img src="./assets/HMAC.png" style="width: 70%;" /></div>
+<div align="center"><img src="./assets/HMAC.png" style="width: 100%; background-color: white;" /></div>
 A pair of parties using this system must agree on:
 - Secret Keys - Both parties must agree on a secret and hidden key for encoding and decoding messages.
 - Algorithm - A hash function (SHA-1, MD5, SHA256, SHA512) that all these messages have to pass through to succesfully validate if a message hasn't been tampered with.
@@ -59,7 +59,7 @@ The client browser is responsible for storing the token and sends that token alo
 Instead of storing a plaintext username, or user_id, **```we can encode user data with JSON Web Tokens (JWT) and store that encoded token client-side```**.
 
 ## JWT Authentication flow
-<div align="center"><img src="./assets/jwtflow.png" style="width: 70%;" /></div>
+<div align="center"><img src="./assets/jwtflow.png" style="width: 70%; " /></div>
 1. An already existing user requests access with their username and password
 2. The app validates these credentials
 3. The app gives a signed token to the client

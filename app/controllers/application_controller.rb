@@ -1,5 +1,8 @@
 class ApplicationController < ActionController::API
-    # wrap_parameters format: []
+    wrap_parameters format: []
+    rescue_from ActiveRecord::RecordInvalid, with: :record_invalid_response
+    rescue_from ActiveRecord::RecordNotFound, with: :record_not_found_response
+
     before_action :authorized
 
     def encode_token(payload)
@@ -49,4 +52,14 @@ class ApplicationController < ActionController::API
     def authorized
         render json: { message: 'Please log in' }, status: :unauthorized unless logged_in?
     end
+
+  private
+
+  def record_invalid_response(invalid)
+    render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
+  end
+
+  def record_not_found_response
+    render json: { error: "#{controller_name.classify} not found" },status: :not_found
+  end
 end
